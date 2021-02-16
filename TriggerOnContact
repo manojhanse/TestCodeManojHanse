@@ -1,0 +1,13 @@
+Trigger count on Contact (after insert) {
+
+    List<Account> acclist = new List<Account>();
+    
+    acclist= [Select id , (select id from Contacts) from Account];
+    
+    for(Account a: acclist){
+    
+        a.Number_of_Contacts__c = a.Contacts.size();
+    }
+    
+    update acclist;
+}
