@@ -1,0 +1,8 @@
+public with sharing class top10Accounts {
+
+    @AuraEnabled 
+    public static List<Account> getTop10Accounts(){
+        
+        return [SELECT Id, Name FROM Account Order by  CreatedDate desc Limit 10  ];
+    }
+}
