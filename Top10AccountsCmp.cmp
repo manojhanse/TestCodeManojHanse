@@ -1,0 +1,8 @@
+<aura:component controller="top10Accounts" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/> 
+    <aura:attribute name="top10Accounts" type="Account[]"/>
+    <lightning:card variant="Basic" title="Recent Accounts"/>    
+    <aura:iteration items="{!v.top10Accounts}" var="acc">
+	    <c:accCard account="{!acc}"/>
+    </aura:iteration>
+</aura:component>
